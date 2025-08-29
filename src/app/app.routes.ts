@@ -13,22 +13,20 @@ import { LoginComponent } from './login/login.component';
 
 // ToDo's:
  
-// - Update company name
 // - Add/remove pages as needed
-// - Add SEO to titles as needed
 // - Delete comment
 
 export const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
-  { path: 'admin', component: AdminComponent, data: { title: 'Admin | Company Name' }},
-  { path: 'home', component: HomeComponent, title: 'Website Name | Slogan' },
-  { path: 'about', component: AboutComponent, data: { title: 'About Us | Company Name' }},
-  { path: 'services', component: ServicesComponent, data: { title: 'Our Services | Company Name' }},
-  { path: 'services/:service', component: ServiceComponent, data: { title: ' | Company Name' } },
-  { path: 'contact', component: ContactComponent, title: 'Contact Us | Company Name'},
-  { path: 'signup', component: SignupComponent, title: 'Sign Up | Company Name' },
-  { path: 'login', component: LoginComponent, title: 'Login | Company Name' },
-  { path: '**', component: NotfoundComponent, title: 'Page Not Found | Company Name' },
+  { path: 'admin', component: AdminComponent, data: { title: 'Admin | Anchor Sports Group' }},
+  { path: 'home', component: HomeComponent, title: 'Anchor Sports Group | Where Faith Anchors Greatness' },
+  { path: 'about', component: AboutComponent, data: { title: 'About Us | Anchor Sports Group' }},
+  { path: 'services', component: ServicesComponent, data: { title: 'Our Services | Anchor Sports Group' }},
+  { path: 'services/:service', component: ServiceComponent, data: { title: ' | Anchor Sports Group' } },
+  { path: 'contact', component: ContactComponent, title: 'Contact Us | Anchor Sports Group'},
+  { path: 'signup', component: SignupComponent, title: 'Sign Up | Anchor Sports Group' },
+  { path: 'login', component: LoginComponent, title: 'Login | Anchor Sports Group' },
+  { path: '**', component: NotfoundComponent, title: 'Page Not Found | Anchor Sports Group' },
 
   //Site Stuff
   // { path: 'sitemap.xml', component: ContactComponent, title: 'Contact Us | RPF Europe' },

@@ -1,0 +1,293 @@
+// Colours
+
+$primary: #000
+$secondary: #ffe4b1
+$accent: #000
+$header: #000
+$paragraph: #000
+$border: #000
+$bg: #00023c
+$alert: #c70000
+$text-light: #fff
+$text-dark: #333
+$text-hover: #555
+$standard-padding: 20px
+
+// Fonts
+
+$font-stack: "Oswald", sans-serif
+
+// General Styles
+
+#success
+    display: none
+
+html
+    scroll-behavior: smooth
+
+p
+    font-size: 1rem
+    font-weight: 200
+
+.wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 20px
+
+section
+    width: 100vw
+    height: 100vh
+    text-align: center
+    margin: 0
+    font-family: $font-stack
+    display: flex
+    justify-content: center
+    align-items: center
+    background: $bg
+
+.header
+    background-image: url('/assets/images/showcase.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    height: 100vh
+
+    .wrapper
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 20px
+
+    img
+        height: 25rem
+        max-width: 90%
+
+    p
+        font-size: 2.5rem
+        font-weight: 300
+        color: $secondary
+
+    // CTA Button Styling (for all .cta <a> links)
+    .cta
+        text-decoration: none
+        padding: 10px 10px
+        color: $secondary
+        background: none
+        font-family: $font-stack
+        font-size: 3rem
+        font-weight: 300
+        transition: background-color 0.3s ease, color 0.3s ease
+
+        &:hover
+            background-color: $secondary
+            color: $primary
+            cursor: pointer
+
+.about
+    background-image: url('/assets/images/about.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    color: $paragraph
+
+    .wrapper
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 1rem
+        padding: 1rem
+        color: $text-light
+        .panel
+            background: $bg
+            -webkit-box-shadow: 2px 7px 17px -5px #000000
+            box-shadow: 2px 7px 17px -5px #000000
+            padding: 1rem
+            img
+                width: 2.5rem
+
+.services
+    background: #e3caa5
+    color: $primary
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .wrapper
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-auto-rows: 13rem
+        gap: 0.6rem
+        width: 90%
+        max-width: 85rem
+        height: unset
+        justify-content: center
+
+    .service
+        background-size: cover
+        background-position: center
+        border-radius: 3px
+        position: relative
+        overflow: hidden
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        min-height: 12rem
+        background-color: rgba(255, 255, 255, 0.8)
+        transition: transform 0.3s ease, box-shadow 0.3s ease
+        color: $secondary
+
+        &:hover
+            transform: scale(1.02)
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2)
+
+        p
+            background-color: rgba(0, 0, 0, 0.5)
+
+            padding: 10px 20px
+            border-radius: 3px
+            font-size: 1rem
+    a
+        font-size: 70px
+        font-weight: 100
+
+.faq-section
+    max-width: 100vw
+    background: #e3caa5
+    text-align: center
+    padding: 0
+    margin: 0
+
+    .wrapper
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 20px
+        text-align: left
+
+h4
+    font-weight: 300
+    font-size: 1.5rem
+    width: 764px
+
+header
+    margin-bottom: 70px
+    p
+        font-size: 1.2rem
+
+details
+    cursor: pointer
+
+summary:focus-visible
+    outline: 2px solid orange
+    outline-offset: 8px
+    border-radius: 4px
+
+summary
+    font-size: 20px
+    display: flex
+    justify-items: space-between
+    align-items: center
+    margin-bottom: 25px
+
+summary::marker
+    display: none
+    content: ""
+
+span
+    margin-top: 4px
+    paddding-left: 5rem
+    font-size: 2rem
+details > p 
+    max-width: 650px
+    font-size: 18px
+    line-height: 155%
+    letter-spacing: .1px
+    margin-bottom: 40px
+    padding-left: 10px
+
+hr
+    border: 1px solid $primary
+    width: 50rem
+    margin: 0
+
+.contact
+    background: linear-gradient(0deg,rgba(107, 79, 59, 1) 0%, rgba(227, 202, 165, 1) 100%)
+    color: $text-dark
+    display: flex
+    flex-direction: column
+
+    #success1
+        display: none
+
+    .form-wrapper
+        display: flex
+        flex-direction: row
+        width: 100%
+
+    .contact-details
+        width: 50%
+        p
+            font-weight: 300
+            font-size: 1.2rem
+
+    .form-elem
+        text-align: left
+        display: flex
+        justify-content: space-between
+        color: $text-dark
+
+        p
+            text-align: left
+            height: unset
+            margin: 0
+            padding: 0
+            font-weight: 300
+    .error
+        display: flex
+        color: red
+        text-align: left
+        height: unset
+        margin: 0
+        padding: 0
+        font-weight: 300
+
+    p
+        padding: 0 10%
+        padding-bottom: 80px
+        font-weight: 800
+
+    .form
+        width: 50%
+        ::placeholder
+            color: $text-dark
+            font-family: $font-stack
+            font-size: 1.2rem
+            text-align: left
+
+        form
+            display: flex
+            flex-direction: column
+            width: 100%
+            input, textarea
+                font-family: $font-stack
+                font-weight: 300
+                font-size: 12pt
+                border: none
+                border-bottom: solid 1px $text-dark
+                background-color: inherit
+                color: inherit
+                width: 60%
+                margin-bottom: 30px
+                padding: 10px
+            textarea
+                border: solid 1px $text-dark
+            input:focus
+                outline: none
+
+            .submit
+                margin-top: 40px
+                width: 130px
+                color: $text-dark
+                font-family: $font-stack
+                font-size: 1.2rem
+                border: solid 1px $text-dark
+                background-color: inherit
+                border-radius: 50px
