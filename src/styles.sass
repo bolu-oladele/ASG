@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Colours
+
+$primary: #000
+$secondary: #000
+$accent: #000
+$header: #000
+$paragraph: #000
+$border: #000
+$bg: #222
+$alert: #c70000
+$text-light: #ccc
+$text-dark: #333
+$text-hover: #555
+$standard-padding: 20px
+
+// Fonts
+
+$font-stack: "Montserrat", sans-serif
+
+// General Styles
+
+body
+    padding: 0
+    margin: 0
+    width: 100%
+    overflow-x: hidden
+    font-family: $font-stack
+
+.alert
+    color: $alert
+
+h1
+    font-size: 3.5em
+    margin: 0
+
+h2
+    font-size: 2.2em
+    margin: 0
+
+h3
+    font-size: 1.3em
+    margin: 0
+
+a
+    text-decoration: none
+    color: inherit
+
+    &:hover
+        color: $text-hover
+
+.nav
+    background-color: $bg
+    padding: $standard-padding
+    display: flex
+    justify-content: center
+
+    ul
+        list-style: none
+        padding: 0
+        margin: 0
+        display: flex
+        justify-content: flex-start
+
+        li
+            position: relative
+            margin-right: 15px
+
+        a
+            color: white
+            text-decoration: none
+            padding: 8px 16px
+            display: block
+
+            &:hover
+                background-color: $text-hover
+
+        ul.dropdown
+            display: none
+            position: absolute
+            top: 100%
+            left: 0
+            background-color: $bg
+            min-width: 160px
+
+            li
+                margin: 0
+
+            a
+                padding: 10px
+                display: block
+                color: white
+
+                &:hover
+                    background-color: $text-hover
+
+        &:hover ul.dropdown
+            display: block
+
+.footer
+    background-color: $bg
+    width: 100%
+    height: unset
+    padding: $standard-padding
+    text-align: center
+    display: flex
+    flex-direction: column
+    align-content: center
+    color: $text-light
+
+    .social-links
+        padding: 20px 0
+        p
+            padding: 0 20px 20px 20px
+
+        a
+            img
+                height: 25px
+                padding: 0 20px
+
+    .footer-links
+
+        .content
+            padding: 20px
+            a
+                padding: 0 20px

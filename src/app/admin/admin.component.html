@@ -1,0 +1,59 @@
+<div class="admin-container">
+  <h1>Admin Dashboard</h1>
+  <p>Welcome, Admin! Manage your site content here.</p>
+
+  <!-- Login Section (if not logged in) -->
+  <div *ngIf="!isLoggedIn" class="login-section">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLogin()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+
+      <button type="submit">Login</button>
+      <p *ngIf="loginError" class="error">{{ loginError }}</p>
+    </form>
+  </div>
+
+  <!-- Admin Controls (if logged in) -->
+  <div *ngIf="isLoggedIn" class="admin-controls">
+    <!-- Manage Images -->
+    <section>
+      <h2>Manage Images</h2>
+      <form (ngSubmit)="onUploadImage()">
+        <label for="image">Upload New Image:</label>
+        <input type="file" id="image" (change)="onImageChange($event)" accept="image/*" required>
+        <button type="submit">Upload</button>
+      </form>
+
+      <div *ngIf="uploadedImage">
+        <h3>Uploaded Image Preview:</h3>
+        <img [src]="uploadedImage" alt="Uploaded Image" class="image-preview">
+      </div>
+    </section>
+
+    <!-- Manage Text Content -->
+    <section>
+      <h2>Manage Text Content</h2>
+      <form (ngSubmit)="onUpdateText()">
+        <label for="pageSelect">Select Page:</label>
+        <select id="pageSelect" [(ngModel)]="selectedPage" name="pageSelect">
+          <option value="home">Home</option>
+          <option value="about">About</option>
+          <option value="services">Services</option>
+          <option value="contact">Contact</option>
+        </select>
+
+        <label for="content">Update Content:</label>
+        <textarea id="content" [(ngModel)]="content" name="content" rows="5" required></textarea>
+
+        <button type="submit">Update</button>
+      </form>
+    </section>
+
+    <!-- Logout Button -->
+    <button class="logout-btn" (click)="onLogout()">Logout</button>
+  </div>
+</div>

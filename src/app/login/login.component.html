@@ -1,0 +1,22 @@
+<section class="header">
+    <h1>Login</h1>
+</section>
+
+<section class="form" id="form">
+    <form #form="ngForm" action="" (ngSubmit) = "submit(form)">
+        <div class="form-elem">
+            <input required #email="ngModel" ngModel type="email" name="email" id="email" placeholder="Email Address">
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                <p *ngIf="email.errors?.['required']">Email Required!</p>
+            </div>
+        </div>
+        <div class="form-elem">
+            <input required #password="ngModel" ngModel type="password" name="password" id="password" placeholder="password">
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                <p *ngIf="password.errors?.['required']">Password Required!</p>
+            </div>
+        </div>
+        <input type="submit" [disabled]="form['invalid']" value="Submit" class="submit">
+    </form>
+        
+</section>
