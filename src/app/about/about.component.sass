@@ -1,0 +1,200 @@
+// Colours
+
+$primary: #000
+$secondary: #ffe4b1
+$accent: #000
+$header: #000
+$paragraph: #000
+$border: #000
+$bg: #020133
+$alert: #c70000
+$text-light: #fff
+$text-dark: #333
+$text-hover: #555
+$standard-padding: 20px
+
+// Fonts
+
+$font-stack: "Oswald", sans-serif
+
+// General Styles
+#success
+    display: none
+
+html
+    scroll-behavior: smooth
+
+p
+    font-size: 1rem
+    font-weight: 200
+
+h1, h2, h3
+    color: $text-light
+    font-weight: 300
+
+section
+    background: $bg
+    color: $text-light
+    padding: 20px 20px
+    margin: 0
+    text-align: center
+
+    h2
+        padding: 4rem
+        font-size: 3rem
+
+    p
+        margin: 0
+        font-weight: 200
+        font-size: 1rem
+
+.header
+    background: $bg
+    background-image: url('/assets/images/about-header.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    height: 25rem
+    align-content: center
+
+    h1
+        font-size: 7rem
+
+.promise
+    align-content: center
+
+    .wrapper
+        display: grid
+        grid-template-columns: repeat(4, 300px)
+        gap: 1rem
+        padding: 1rem
+        color: $text-light
+        justify-content: center
+
+        .panel
+            background: $bg
+            -webkit-box-shadow: 2px 7px 17px -5px #000000
+            box-shadow: 2px 7px 17px -5px #000000
+            padding: 1rem
+            border-radius: 5px
+            height: 30rem
+            align-content: space-around
+
+            img
+                width: 2.5rem
+
+@media (max-width: 1340px)
+
+    section
+        height: unset
+
+    .about
+
+        .wrapper
+            padding: 0
+            margin: 0
+
+            .right
+                padding: 0px
+                width: 90vw
+
+@media (max-width: 1040px)
+
+    section
+        height: unset
+
+    // About
+
+    .about
+        display: flex
+        align-items: center
+        .wrapper
+            padding: 0
+            margin: 0
+            flex-direction: column
+            align-items: center
+            .left
+                align-items: center
+                width: 100%
+                img
+                    max-width: 20rem
+
+            .right
+                padding: 0px
+                width: 90vw
+                p
+                    font-size: 0.8rem
+        a
+            font-size: 3rem
+
+    .promise
+        color: $primary
+        display: flex
+        flex-direction: column
+        height: unset
+
+        .wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            gap: 1rem
+            padding: 1rem
+            color: $text-light
+            height: unset
+
+            .panel
+                background: $bg
+                -webkit-box-shadow: 2px 7px 17px -5px #000000
+                box-shadow: 2px 7px 17px -5px #000000
+                padding: 1rem
+                border-radius: 5px
+                align-content: space-around
+
+                img
+                    width: 2rem
+
+@media (max-width: 500px)
+
+    section
+        height: unset
+
+    .about
+        background: $bg
+        display: flex
+        flex-direction: column
+        color: $paragraph
+
+        h1
+            padding: 3rem 0
+
+        .wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            gap: 1rem
+            padding: 1rem
+            color: $text-light
+            height: 50%
+            width: 90%
+
+    .promise
+        color: $primary
+        display: flex
+        flex-direction: column
+        height: unset
+
+        .wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            gap: 1rem
+            padding: 1rem
+            color: $text-light
+            height: unset
+
+            .panel
+                background: $bg
+                -webkit-box-shadow: 2px 7px 17px -5px #000000
+                box-shadow: 2px 7px 17px -5px #000000
+                padding: 1rem
+                border-radius: 5px
+                align-content: space-around
+
+                img
+                    width: 2rem

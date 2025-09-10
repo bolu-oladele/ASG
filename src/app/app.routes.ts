@@ -3,9 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ServicesComponent } from './services/services.component';
-import { ServiceComponent } from './service/service.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
@@ -19,10 +17,9 @@ import { LoginComponent } from './login/login.component';
 export const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
   { path: 'admin', component: AdminComponent, data: { title: 'Admin | Anchor Sports Group' }},
-  { path: 'home', component: HomeComponent, title: 'Anchor Sports Group | Where Faith Anchors Greatness' },
+  { path: 'home', component: HomeComponent, title: 'Anchor Sports Group | Where Faith Anchors Greatness | Sports Agency' },
   { path: 'about', component: AboutComponent, data: { title: 'About Us | Anchor Sports Group' }},
   { path: 'services', component: ServicesComponent, data: { title: 'Our Services | Anchor Sports Group' }},
-  { path: 'services/:service', component: ServiceComponent, data: { title: ' | Anchor Sports Group' } },
   { path: 'contact', component: ContactComponent, title: 'Contact Us | Anchor Sports Group'},
   { path: 'signup', component: SignupComponent, title: 'Sign Up | Anchor Sports Group' },
   { path: 'login', component: LoginComponent, title: 'Login | Anchor Sports Group' },

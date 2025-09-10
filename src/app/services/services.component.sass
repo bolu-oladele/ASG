@@ -1,0 +1,583 @@
+// Colours
+
+$primary: #000
+$secondary: #ffe4b1
+$accent: #000
+$header: #000
+$paragraph: #000
+$border: #000
+$bg: #020133
+$alert: #c70000
+$text-light: #fff
+$text-dark: #333
+$text-hover: #555
+$standard-padding: 20px
+
+// Fonts
+
+$font-stack: "Oswald", sans-serif
+
+// General Styles
+#success
+    display: none
+
+html
+    scroll-behavior: smooth
+
+p
+    font-size: 1rem
+    font-weight: 200
+
+h1, h2, h3, h4
+    color: $text-light
+    font-weight: 300
+
+section
+    color: $text-light
+    padding: 20px 20px
+    margin: 0
+    text-align: center
+    align-content: center
+
+    p
+        margin: 0
+        font-weight: 200
+        font-size: 1rem
+
+h2
+    padding-bottom: 3rem
+
+.header
+    background: $bg
+    background-image: url('/assets/images/services-header.jpeg')
+    background-size: cover
+    background-repeat: no-repeat
+    height: 25rem
+    align-content: center
+
+    h1
+        font-size: 7rem
+
+.onpitch
+    background: $bg
+    background-image: url('/assets/images/on-pitch.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    height: 800px
+
+.offpitch
+    background: $bg
+    background-image: url('/assets/images/off-pitch.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    height: 800px
+
+@import "https://cdn.jsdelivr.net/gh/dmbdesignpdx/panda-props/dist/defined/colors.min.css"
+@import "https://cdn.jsdelivr.net/gh/dmbdesignpdx/panda-props/dist/spaces.min.css"
+@import "https://cdn.jsdelivr.net/gh/dmbdesignpdx/panda-props/dist/sizes.min.css"
+@import "https://cdn.jsdelivr.net/gh/dmbdesignpdx/panda-props/dist/shadows.min.css"
+@import "https://cdn.jsdelivr.net/gh/dmbdesignpdx/panda-props/dist/radii.min.css"
+@layer tokens, reset, utilities, demo.support, demo.main, demo2.main, demo2.support
+
+/* 
+ * Main Functionality
+ */
+
+@layer demo.main
+    .gallery
+        anchor-name: --gallery
+        overflow-x: scroll
+        scroll-behavior: smooth
+        overscroll-behavior-x: contain
+        scrollbar-width: none
+        scroll-snap-type: x mandatory
+        background: none
+
+        &::scroll-button(*)
+            position-anchor: --gallery
+
+    .slide
+        scroll-snap-stop: always
+        scroll-snap-align: start
+        width: 600px
+        background: $bg
+        padding: 1rem
+        padding-bottom: 2rem
+        box-shadow: 10px 10px 17px -5px #000000
+/* 
+ * Support styling
+ */
+
+@layer demo.support
+    .gallery
+        --_offset: calc(var(--space-12) * -1)
+        display: grid
+        inline-size: 100%
+        grid: auto / auto-flow
+        gap: 1rem
+        padding-block: 1rem
+        padding-inline: 1rem
+        scroll-padding: 1rem
+
+        &::scroll-button(*)
+            inline-size: var(--size-ui)
+            aspect-ratio: 1
+            position: absolute
+            font-family: "Material Symbols Rounded"
+            z-index: 9
+            border: 0
+            border-radius: 100%
+            color: var(--color-button-text)
+            font-size: 1.5rem
+            background-color: var(--color-button)
+            box-shadow: var(--shadow-button)
+            transition: opacity 300ms
+            cursor: pointer
+
+            &:disabled
+                user-select: none
+                pointer-events: none
+                box-shadow: none
+                opacity: 0
+
+            &:hover
+                background-color: var(--color-button-action)
+
+        &::scroll-button(right)
+            position-area: inline-end center
+            content: url('/assets/icons/point-right.png')
+            inset-inline-start: var(--_offset)
+
+        &::scroll-button(left)
+            position-area: inline-start center
+            content: url('/assets/icons/point-left.png')
+            inset-inline-end: var(--_offset)
+
+    .slide
+        counter-increment: gallery
+
+    img
+        width: 30px
+        padding-bottom: 3rem
+
+    h3
+        padding-bottom: 1rem
+
+    .content
+        display: grid
+        place-items: center
+        aspect-ratio: 4 / 5
+        background: var(--color-surface)
+        border: 1px solid var(--color-border)
+        box-shadow: var(--shadow-card)
+        border-radius: var(--radius-md)
+        color: var(--color-surface-text)
+        font-size: 1.5rem
+
+    figcaption::after
+        content: counter(gallery)
+
+/*
+ * Supporting styles
+ */
+
+@layer tokens
+    :root
+        --color-background: light-dark(var(--zinc-100), var(--zinc-900))
+        --color-surface: light-dark(var(--zinc-50), var(--zinc-800))
+        --color-surface-text: light-dark(var(--neutral-900), var(--neutral-100))
+        --color-button: light-dark(var(--zinc-800), var(--zinc-200))
+        --color-button-action: light-dark(var(--zinc-600), var(--zinc-400))
+        --color-button-text: light-dark(var(--neutral-100), var(--neutral-900))
+        --color-border: light-dark(var(--neutral-100), var(--neutral-900))
+        --gap: var(--space-4)
+        --shadow-card: var(--shadow-sm)
+        --shadow-button: var(--shadow-darker-md)
+
+@layer reset
+    *,
+    *::before,
+    *::after
+        box-sizing: border-box
+        position: relative
+        margin: 0
+        padding: 0
+        border: 0
+
+    html
+        font-size: 100%
+        color-scheme: light dark
+
+    body
+        touch-action: manipulation
+        -webkit-overflow-scrolling: touch
+        -webkit-tap-highlight-color: transparent
+        background: var(--color-background)
+
+    @media (prefers-color-scheme: dark)
+        :root
+            --shadow-card: var(--shadow-darker-sm)
+
+        body
+            -moz-osx-font-smoothing: grayscale
+            -webkit-font-smoothing: antialiased
+
+@layer utilities
+    [data-sr]
+        width: 1px
+        height: 1px
+        position: absolute
+        overflow: hidden
+
+    [data-support]
+        position: fixed
+        inset-block-end: 0
+        inset-inline-start: 0
+        padding: 1em
+        color: black
+        letter-spacing: 0.04ch
+        font-size: 0.75rem
+        background-color: gold
+
+// Off Pitch
+
+/* 
+ * Main Functionality
+ */
+
+@layer demo2.main
+    .gallery1
+        anchor-name: --gallery1
+        overflow-x: scroll
+        scroll-behavior: smooth
+        overscroll-behavior-x: contain
+        scrollbar-width: none
+        scroll-snap-type: x mandatory
+        background: none
+
+        &::scroll-button(*)
+            position-anchor: --gallery1
+
+    .slide1
+        scroll-snap-stop: always
+        scroll-snap-align: start
+        width: 600px
+        background: $bg
+        padding: 1rem
+        padding-bottom: 2rem
+        box-shadow: 10px 10px 17px -5px #000000
+/* 
+ * Support styling
+ */
+
+@layer demo2.support
+    .gallery1
+        --_offset: calc(var(--space-12) * -1)
+        display: grid
+        inline-size: 100%
+        grid: auto / auto-flow
+        gap: 1rem
+        padding-block: 1rem
+        padding-inline: 1rem
+        scroll-padding: 1rem
+
+        &::scroll-button(*)
+            inline-size: var(--size-ui)
+            aspect-ratio: 1
+            position: absolute
+            font-family: "Material Symbols Rounded"
+            z-index: 9
+            border: 0
+            border-radius: 100%
+            color: var(--color-button-text)
+            font-size: 1.5rem
+            background-color: var(--color-button)
+            box-shadow: var(--shadow-button)
+            transition: opacity 300ms
+            cursor: pointer
+
+            &:disabled
+                user-select: none
+                pointer-events: none
+                box-shadow: none
+                opacity: 0
+
+            &:hover
+                background-color: var(--color-button-action)
+
+        &::scroll-button(right)
+            position-area: inline-end center
+            content: url('/assets/icons/point-right.png')
+            inset-inline-start: var(--_offset)
+
+        &::scroll-button(left)
+            position-area: inline-start center
+            content: url('/assets/icons/point-left.png')
+            inset-inline-end: var(--_offset)
+
+    .slide1
+        counter-increment: gallery1
+
+    img
+        width: 30px
+        padding-bottom: 3rem
+
+    h3
+        padding-bottom: 1rem
+
+    .content
+        display: grid
+        place-items: center
+        aspect-ratio: 4 / 5
+        background: var(--color-surface)
+        border: 1px solid var(--color-border)
+        box-shadow: var(--shadow-card)
+        border-radius: var(--radius-md)
+        color: var(--color-surface-text)
+        font-size: 1.5rem
+
+    figcaption::after
+        content: counter(gallery1)
+
+@media (max-width: 1340px)
+
+    section
+        height: unset
+
+    .about
+
+        .wrapper
+            padding: 0
+            margin: 0
+
+            .right
+                padding: 0px
+                width: 90vw
+
+@media (max-width: 1040px)
+
+    section
+        height: unset
+
+    // About
+
+    .about
+        display: flex
+        align-items: center
+        .wrapper
+            padding: 0
+            margin: 0
+            flex-direction: column
+            align-items: center
+            .left
+                align-items: center
+                width: 100%
+                img
+                    max-width: 20rem
+
+            .right
+                padding: 0px
+                width: 90vw
+                p
+                    font-size: 0.8rem
+        a
+            font-size: 3rem
+
+    // Services
+
+    .services
+        padding-top: 3rem
+        background: #e3caa5
+        color: $primary
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .wrapper
+            grid-template-columns: repeat(1, 1fr)
+
+        .service
+            min-height: 9rem
+            p
+                font-size: 0.8rem
+
+        a
+            font-size: 3rem
+            padding-bottom: 4rem
+
+@media (max-width: 500px)
+
+    section
+        height: unset
+
+    .header
+        h1
+            font-size: 4rem
+        p
+            padding-bottom: 2rem
+
+    // Services
+
+    .onpitch, .offpitch
+        color: $primary
+        display: flex
+        flex-direction: column
+        height: unset
+
+    @layer demo.main
+        .slide
+            scroll-snap-stop: always
+            scroll-snap-align: start
+            width: 83vw
+            background: $bg
+            padding: 2rem
+            padding-bottom: 2rem
+            box-shadow: none
+
+    @layer demo.support
+        .gallery
+            --_offset: calc(var(--space-12) * -1)
+            display: grid
+            inline-size: 100%
+            grid: auto / auto-flow
+            gap: 1rem
+            padding-block: 1rem
+            padding-inline: 1rem
+            scroll-padding: 1rem
+
+            &::scroll-button(*)
+                inline-size: var(--size-ui)
+                aspect-ratio: 1
+                position: fixed
+                font-family: "Material Symbols Rounded"
+                z-index: 9
+                border: 0
+                border-radius: 100%
+                color: var(--color-button-text)
+                font-size: 1.5rem
+                background-color: var(--color-button)
+                box-shadow: var(--shadow-button)
+                transition: opacity 300ms
+                cursor: pointer
+
+                &:disabled
+                    user-select: none
+                    pointer-events: none
+                    box-shadow: none
+                    opacity: 0
+
+                &:hover
+                    background-color: var(--color-button-action)
+
+            &::scroll-button(right)
+                position-area: inline-end center
+                content: url('/assets/icons/point-right.png')
+                inset-inline-start: var(--_offset)
+
+            &::scroll-button(left)
+                position-area: inline-start center
+                content: url('/assets/icons/point-left.png')
+                inset-inline-end: var(--_offset)
+
+        .slide
+            counter-increment: gallery
+
+        img
+            width: 30px
+            padding-bottom: 3rem
+
+        h3
+            padding-bottom: 1rem
+
+        .content
+            display: grid
+            place-items: center
+            aspect-ratio: 4 / 5
+            background: var(--color-surface)
+            border: 1px solid var(--color-border)
+            box-shadow: var(--shadow-card)
+            border-radius: var(--radius-md)
+            color: var(--color-surface-text)
+            font-size: 1.5rem
+
+        figcaption::after
+            content: counter(gallery)
+
+    @layer demo2.main
+        .slide1
+            scroll-snap-stop: always
+            scroll-snap-align: start
+            width: 83vw
+            background: $bg
+            padding: 2rem
+            padding-bottom: 2rem
+            box-shadow: none
+
+    @layer demo2.support
+        .gallery1
+            --_offset: calc(var(--space-12) * -1)
+            display: grid
+            inline-size: 100%
+            grid: auto / auto-flow
+            gap: 1rem
+            padding-block: 1rem
+            padding-inline: 1rem
+            scroll-padding: 1rem
+
+            &::scroll-button(*)
+                inline-size: var(--size-ui)
+                aspect-ratio: 1
+                position: fixed
+                font-family: "Material Symbols Rounded"
+                z-index: 9
+                border: 0
+                border-radius: 100%
+                color: var(--color-button-text)
+                font-size: 1.5rem
+                background-color: var(--color-button)
+                box-shadow: var(--shadow-button)
+                transition: opacity 300ms
+                cursor: pointer
+
+                &:disabled
+                    user-select: none
+                    pointer-events: none
+                    box-shadow: none
+                    opacity: 0
+
+                &:hover
+                    background-color: var(--color-button-action)
+
+            &::scroll-button(right)
+                position-area: inline-end center
+                content: url('/assets/icons/point-right.png')
+                inset-inline-start: var(--_offset)
+
+            &::scroll-button(left)
+                position-area: inline-start center
+                content: url('/assets/icons/point-left.png')
+                inset-inline-end: var(--_offset)
+
+        .slide1
+            counter-increment: gallery1
+
+        img
+            width: 30px
+            padding-bottom: 3rem
+
+        h3
+            padding-bottom: 1rem
+
+        .content
+            display: grid
+            place-items: center
+            aspect-ratio: 4 / 5
+            background: var(--color-surface)
+            border: 1px solid var(--color-border)
+            box-shadow: var(--shadow-card)
+            border-radius: var(--radius-md)
+            color: var(--color-surface-text)
+            font-size: 1.5rem
+
+        figcaption::after
+            content: counter(gallery1)

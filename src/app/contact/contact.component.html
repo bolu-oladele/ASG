@@ -1,62 +1,47 @@
-<section class="header">
-    <div>
-        <h1>Contact</h1>
-    </div>
-
-</section>
-
-<section class="contact general" id="contact">
-    <h2>General Enquiries</h2>
-
-    <div class="contact-details">
-        <div class="email-info">
-            <h3>Email:</h3>
-            <p>Company Email Goes Here</p>
-        </div>
-
-        <div class="tel-info">
-            <h3>Telephone:</h3>
-            <p>Company Number Goes Here</p>
-        </div>
-
-        <div class="address-info">
-            <h3>Address:</h3>
-            <p>Company Address Goes Here</p>
-        </div>
-    </div>
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h1>Contact Us</h1>
 
     <div id="success">
         <h1>Thank you, your request has been submitted</h1>
     </div>
 
-    <div class="form" id="form">
-        <form #form="ngForm" action="" (ngSubmit) = "submit(form)">
-            <div class="form-elem">
-                <input required #name="ngModel" ngModel type="text" name="name" id="name" placeholder="Full Name">
-                <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
-                    <p *ngIf="name.errors?.['required']">Name Required!</p>
+    <div class="form-wrapper">
+            <div class="contact-details">
+                <div class="email-info">
+                    <h3>Email:</h3>
+                    <p>admin&#64;anchorsportsgroup.co.uk</p>
                 </div>
+
             </div>
-            <div class="form-elem">
-                <input required #email="ngModel" ngModel type="email" name="email" id="email" placeholder="Email Address">
-                <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-                    <p *ngIf="email.errors?.['required']">Email Required!</p>
-                </div>
+            <div class="form" id="form">
+                <form #form="ngForm" action="" (ngSubmit) = "submit(form)">
+                    <div class="form-elem">
+                        <input required #name="ngModel" ngModel type="text" name="name" id="name" placeholder="Full Name">
+                        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+                            <p class="error" *ngIf="name.errors?.['required']">Name Required!</p>
+                        </div>
+                    </div>
+                    <div class="form-elem">
+                        <input required #email="ngModel" ngModel type="email" name="email" id="email" placeholder="Email Address">
+                        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                            <p class="error"*ngIf="email.errors?.['required']">Email Required!</p>
+                        </div>
+                    </div>
+                    <div class="form-elem">
+                        <input required #tel="ngModel" ngModel type="tel" name="tel" id="tel" placeholder="Telephone">
+                        <div *ngIf="tel.touched && tel.invalid" class="alert alert-danger">
+                            <p class="error"*ngIf="tel.errors?.['required']">Number Required!</p>
+                        </div>
+                    </div>
+                    <div class="form-elem">
+                        <textarea required #message="ngModel" ngModel type="textarea" name="message" placeholder="Message"></textarea>
+                        <div *ngIf="message.touched && message.invalid" class="alert alert-danger">
+                            <p class="error"*ngIf="message.errors?.['required']">Message Required!</p>
+                        </div>
+                    </div>
+                    <input type="submit" [disabled]="form['invalid']" value="Submit" class="submit">
+                </form>
             </div>
-            <div class="form-elem">
-                <input required #tel="ngModel" ngModel type="tel" name="tel" id="tel" placeholder="Telephone">
-                <div *ngIf="tel.touched && tel.invalid" class="alert alert-danger">
-                    <p *ngIf="tel.errors?.['required']">Number Required!</p>
-                </div>
-            </div>
-            <div class="form-elem">
-                <textarea required #message="ngModel" ngModel type="textarea" name="message" placeholder="Message"></textarea>
-                <div *ngIf="message.touched && message.invalid" class="alert alert-danger">
-                    <p *ngIf="message.errors?.['required']">Message Required!</p>
-                </div>
-            </div>
-            <input type="submit" [disabled]="form['invalid']" value="Submit" class="submit">
-        </form>
-        
     </div>
 </section>

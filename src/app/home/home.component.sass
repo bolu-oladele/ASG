@@ -6,7 +6,7 @@ $accent: #000
 $header: #000
 $paragraph: #000
 $border: #000
-$bg: #00023c
+$bg: #020133
 $alert: #c70000
 $text-light: #fff
 $text-dark: #333
@@ -28,6 +28,10 @@ html
 p
     font-size: 1rem
     font-weight: 200
+
+h1, h2, h3
+    color: $text-light
+    font-weight: 300
 
 .wrapper
     display: flex
@@ -78,20 +82,45 @@ section
         font-weight: 300
         transition: background-color 0.3s ease, color 0.3s ease
 
-        &:hover
-            background-color: $secondary
-            color: $primary
-            cursor: pointer
-
 .about
-    background-image: url('/assets/images/about.jpg')
-    background-size: cover
-    background-repeat: no-repeat
+    background: $bg
+    display: flex
+    flex-direction: column
     color: $paragraph
+
+    h1
+        padding: 3rem 0
 
     .wrapper
         display: grid
         grid-template-columns: repeat(2, 1fr)
+        gap: 1rem
+        padding: 1rem
+        color: $text-light
+        height: 50%
+        width: 60%
+
+        .panel
+            background: $bg
+            -webkit-box-shadow: 2px 7px 17px -5px #000000
+            box-shadow: 2px 7px 17px -5px #000000
+            padding: 1rem
+            align-content: center
+            img
+                width: 2.5rem
+
+.services
+    background-image: url('/assets/images/about.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    color: $primary
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .wrapper
+        display: grid
+        grid-template-columns: repeat(4, 300px)
         gap: 1rem
         padding: 1rem
         color: $text-light
@@ -100,119 +129,21 @@ section
             -webkit-box-shadow: 2px 7px 17px -5px #000000
             box-shadow: 2px 7px 17px -5px #000000
             padding: 1rem
+            border-radius: 5px
+            height: 30rem
+            align-content: space-around
+
             img
                 width: 2.5rem
 
-.services
-    background: #e3caa5
-    color: $primary
-    display: flex
-    flex-direction: column
-    align-items: center
-
-    .wrapper
-        display: grid
-        grid-template-columns: repeat(3, 1fr)
-        grid-auto-rows: 13rem
-        gap: 0.6rem
-        width: 90%
-        max-width: 85rem
-        height: unset
-        justify-content: center
-
-    .service
-        background-size: cover
-        background-position: center
-        border-radius: 3px
-        position: relative
-        overflow: hidden
-        display: flex
-        align-items: flex-end
-        justify-content: center
-        min-height: 12rem
-        background-color: rgba(255, 255, 255, 0.8)
-        transition: transform 0.3s ease, box-shadow 0.3s ease
-        color: $secondary
-
-        &:hover
-            transform: scale(1.02)
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2)
-
-        p
-            background-color: rgba(0, 0, 0, 0.5)
-
-            padding: 10px 20px
-            border-radius: 3px
-            font-size: 1rem
-    a
-        font-size: 70px
-        font-weight: 100
-
-.faq-section
-    max-width: 100vw
-    background: #e3caa5
-    text-align: center
-    padding: 0
-    margin: 0
-
-    .wrapper
-        display: flex
-        flex-direction: column
-        align-items: center
-        padding: 20px
-        text-align: left
-
-h4
-    font-weight: 300
-    font-size: 1.5rem
-    width: 764px
-
-header
-    margin-bottom: 70px
-    p
-        font-size: 1.2rem
-
-details
-    cursor: pointer
-
-summary:focus-visible
-    outline: 2px solid orange
-    outline-offset: 8px
-    border-radius: 4px
-
-summary
-    font-size: 20px
-    display: flex
-    justify-items: space-between
-    align-items: center
-    margin-bottom: 25px
-
-summary::marker
-    display: none
-    content: ""
-
-span
-    margin-top: 4px
-    paddding-left: 5rem
-    font-size: 2rem
-details > p 
-    max-width: 650px
-    font-size: 18px
-    line-height: 155%
-    letter-spacing: .1px
-    margin-bottom: 40px
-    padding-left: 10px
-
-hr
-    border: 1px solid $primary
-    width: 50rem
-    margin: 0
-
 .contact
-    background: linear-gradient(0deg,rgba(107, 79, 59, 1) 0%, rgba(227, 202, 165, 1) 100%)
-    color: $text-dark
+    background: $bg
+    color: $text-light
     display: flex
     flex-direction: column
+
+    h1
+        padding-bottom: 5rem
 
     #success1
         display: none
@@ -232,7 +163,7 @@ hr
         text-align: left
         display: flex
         justify-content: space-between
-        color: $text-dark
+        color: $text-light
 
         p
             text-align: left
@@ -257,7 +188,7 @@ hr
     .form
         width: 50%
         ::placeholder
-            color: $text-dark
+            color: $text-light
             font-family: $font-stack
             font-size: 1.2rem
             text-align: left
@@ -271,23 +202,316 @@ hr
                 font-weight: 300
                 font-size: 12pt
                 border: none
-                border-bottom: solid 1px $text-dark
+                border: solid 1px $text-light
                 background-color: inherit
                 color: inherit
                 width: 60%
                 margin-bottom: 30px
                 padding: 10px
             textarea
-                border: solid 1px $text-dark
+                border: solid 1px $text-light
             input:focus
                 outline: none
 
             .submit
                 margin-top: 40px
                 width: 130px
-                color: $text-dark
+                color: $text-light
                 font-family: $font-stack
                 font-size: 1.2rem
-                border: solid 1px $text-dark
+                border: solid 1px $text-light
                 background-color: inherit
                 border-radius: 50px
+
+@media (max-width: 1340px)
+
+    section
+        height: unset
+
+    .about
+
+        .wrapper
+            padding: 0
+            margin: 0
+
+            .right
+                padding: 0px
+                width: 90vw
+
+@media (max-width: 1040px)
+
+    section
+        height: unset
+
+    // About
+
+    .about
+        background: $bg
+        display: flex
+        flex-direction: column
+        color: $paragraph
+
+        h1
+            padding: 3rem 0
+
+        .wrapper
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 1rem
+            padding: 1rem
+            color: $text-light
+            height: 50%
+            width: 90%
+
+            .panel
+                background: $bg
+                -webkit-box-shadow: 2px 7px 17px -5px #000000
+                box-shadow: 2px 7px 17px -5px #000000
+                padding: 1rem
+                align-content: center
+                img
+                    width: 2.5rem
+
+    // Services
+
+    .services
+        padding-top: 3rem
+        background: #e3caa5
+        color: $primary
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .wrapper
+            grid-template-columns: repeat(1, 1fr)
+
+        .service
+            min-height: 9rem
+            p
+                font-size: 0.8rem
+
+        a
+            font-size: 3rem
+            padding-bottom: 4rem
+
+    // Contact
+
+    .contact
+
+        .form-wrapper
+            flex-direction: column
+            align-items: center
+
+        .contact-details
+            width: 100%
+            h3
+                font-weight: 500
+            p
+                font-weight: 300
+                font-size: 1rem
+
+        .form-elem
+            text-align: left
+            display: flex
+            justify-content: center
+            color: $text-light
+            width: 90%
+
+            p
+                text-align: center
+                height: unset
+                margin: 0
+                padding: 0
+                font-weight: 300
+        .error
+            display: flex
+            color: red
+            text-align: left
+            height: unset
+            margin: 0
+            padding: 0
+            font-weight: 300
+
+        p
+            padding: 0 10%
+            padding-bottom: 80px
+            font-weight: 800
+
+        .form
+            width: 100%
+
+            ::placeholder
+                color: $text-light
+                font-family: $font-stack
+                font-size: 1rem
+                text-align: left
+
+            form
+                display: flex
+                flex-direction: column
+                align-items: center
+                width: 100%
+                padding-left: 0px
+                input, textarea
+                    font-family: $font-stack
+                    font-weight: 300
+                    font-size: 1rem
+                    border: none
+                    border-bottom: solid 1px $text-light
+                    background-color: inherit
+                    color: inherit
+                    width: 100%
+                    margin-bottom: 30px
+                    padding: 10px
+                    padding-bottom: 5px
+                textarea
+                    border: solid 1px $text-light
+                input:focus
+                    outline: none
+
+                .submit
+                    margin-top: 40px
+                    width: 130px
+                    color: $text-light
+                    font-family: $font-stack
+                    font-size: 1rem
+                    border: solid 1px $text-light
+                    background-color: inherit
+                    border-radius: 50px
+
+@media (max-width: 500px)
+
+    section
+        height: unset
+
+    .about
+        background: $bg
+        display: flex
+        flex-direction: column
+        color: $paragraph
+
+        h1
+            padding: 3rem 0
+
+        .wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            gap: 1rem
+            padding: 1rem
+            color: $text-light
+            height: 50%
+            width: 90%
+
+    // Services
+
+    .services
+        background-image: url('/assets/images/about.jpg')
+        background-size: cover
+        background-repeat: no-repeat
+        color: $primary
+        display: flex
+        flex-direction: column
+        height: unset
+
+        .wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            gap: 1rem
+            padding: 1rem
+            color: $text-light
+            height: unset
+
+            .panel
+                background: $bg
+                -webkit-box-shadow: 2px 7px 17px -5px #000000
+                box-shadow: 2px 7px 17px -5px #000000
+                padding: 1rem
+                border-radius: 5px
+                align-content: space-around
+
+                img
+                    width: 2rem
+
+    // Contact
+
+    .contact
+
+        .form-wrapper
+            flex-direction: column
+            align-items: center
+
+        .contact-details
+            width: 100%
+            h3
+                font-weight: 500
+            p
+                font-weight: 300
+                font-size: 1rem
+
+        .form-elem
+            text-align: left
+            display: flex
+            justify-content: center
+            color: $text-light
+
+            p
+                text-align: center
+                height: unset
+                margin: 0
+                padding: 0
+                font-weight: 300
+        .error
+            display: flex
+            color: red
+            text-align: left
+            height: unset
+            margin: 0
+            padding: 0
+            font-weight: 300
+
+        p
+            padding: 0 10%
+            padding-bottom: 80px
+            font-weight: 800
+
+        .form
+            width: 100%
+
+            ::placeholder
+                color: $text-light
+                font-family: $font-stack
+                font-size: 1rem
+                text-align: left
+
+            form
+                display: flex
+                flex-direction: column
+                align-items: center
+                width: 100%
+                padding-left: 0px
+                input, textarea
+                    font-family: $font-stack
+                    font-weight: 300
+                    font-size: 1rem
+                    border: none
+                    border: solid 1px $text-light
+                    background-color: inherit
+                    color: inherit
+                    width: 100%
+                    margin-bottom: 30px
+                    padding: 10px
+                    padding-bottom: 5px
+                textarea
+                    border: solid 1px $text-light
+                input:focus
+                    outline: none
+
+                .submit
+                    margin-top: 40px
+                    width: 130px
+                    color: $text-light
+                    font-family: $font-stack
+                    font-size: 1rem
+                    border: solid 1px $text-light
+                    background-color: inherit
+                    border-radius: 50px

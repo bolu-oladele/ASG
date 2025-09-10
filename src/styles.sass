@@ -10,7 +10,7 @@ $paragraph: #000
 $border: #000
 $bg: #020133
 $alert: #c70000
-$text-light: #ccc
+$text-light: #fff
 $text-dark: #333
 $text-hover: #555
 $standard-padding: 20px
@@ -42,7 +42,6 @@ h2
 
 h3
     font-size: 1.3em
-
     margin: 0
 
 a
@@ -58,47 +57,29 @@ a
     display: flex
     justify-content: center
 
+    img
+        width: 40px
+        padding: 0 10px
+
     ul
         list-style: none
         padding: 0
         margin: 0
         display: flex
-        justify-content: flex-start
+        justify-content: center
 
         li
             position: relative
-            margin-right: 15px
+            padding: 0 10px
 
         a
             color: white
             text-decoration: none
-            padding: 8px 16px
+            padding: 8px 24px
             display: block
 
             &:hover
                 background-color: $text-hover
-
-        ul.dropdown
-            display: none
-            position: absolute
-            top: 100%
-            left: 0
-            background-color: $bg
-            min-width: 160px
-
-            li
-                margin: 0
-
-            a
-                padding: 10px
-                display: block
-                color: white
-
-                &:hover
-                    background-color: $text-hover
-
-        &:hover ul.dropdown
-            display: block
 
 .footer
     background-color: $bg
@@ -113,17 +94,65 @@ a
 
     .social-links
         padding: 20px 0
+        justify-content: center
+        align-items: center
         p
             padding: 0 20px 20px 20px
 
         a
             img
                 height: 25px
-                padding: 0 20px
+                padding: 0 0px
 
     .footer-links
+        img
+            width: 30px
+            transform: translateY(20px)
+            padding: 0 10px
 
         .content
             padding: 20px
             a
                 padding: 0 20px
+
+@media (max-width: 1040px)
+
+@media (max-width: 500px)
+
+    .nav
+        ul
+            a
+                font-size: 0.8rem
+                padding: 8px 10px
+            li
+                text-align: center
+
+        img
+            width: 25px
+
+    .footer
+        width: unset
+
+        p
+            font-size: 0.8rem
+
+        .social-links
+            padding: 20px 0
+            p
+                padding: 0 20px 20px 20px
+                font-size: 0.8rem
+
+            a
+                img
+                    height: 20px
+                    padding: 0 15px
+
+        .footer-links
+
+            .content
+                padding: 10px
+                a
+                    display: inline-block
+                    padding: 0 5px
+                    width: 50px
+                    font-size: 0.8rem
